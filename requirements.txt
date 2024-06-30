@@ -1,0 +1,6 @@
+pickle-mixin
+numpy
+tensorflow
+matplotlib
+flask
+keras
