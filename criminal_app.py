@@ -24,10 +24,13 @@ def training():
 
     train = ImageDataGenerator(rescale=1/201)
     validation=ImageDataGenerator(rescale=1/201)
+    #train the model with Face dataset of criminals with different orientations
+    # I trained this model with the self collected images of criminals from google
     train_dataset = train.flow_from_directory('./BaseData/Train',
                                          target_size = (200,200),
                                          batch_size = 15,
                                          class_mode = 'binary')
+    #keep aside some dataset images for validation purpose.
     validation_dataset = train.flow_from_directory('./BaseData/Validation',
                                          target_size = (200,200),
                                          batch_size = 15,
@@ -87,5 +90,5 @@ def upload_predict():
         return render_template("criminals_index.html",pred=pred,image_loc = image_file.filename)           
     return render_template("criminals_index.html",pred=pred, image_loc = None)
 if __name__=="__main__":
-    #training()
+    training()
     app.run(debug=True,host="0.0.0.0",port=3000)
