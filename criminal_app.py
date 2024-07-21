@@ -87,5 +87,5 @@ def upload_predict():
         return render_template("criminals_index.html",pred=pred,image_loc = image_file.filename)           
     return render_template("criminals_index.html",pred=pred, image_loc = None)
 if __name__=="__main__":
-    training()
+    #training()
     app.run(debug=True,host="0.0.0.0",port=3000)
